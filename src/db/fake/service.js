@@ -12,9 +12,21 @@ class FakeService extends DBService {
       { id: '4', name: 'Alice Brown', email: 'alice.brown@example.com' },
       { id: '5', name: 'Charlie Wilson', email: 'charlie.wilson@example.com' },
     ];
+    
+    this.students = new Map();
+    const dummyStudents = [
+      {id: 1, name: "Juan Perez", grade: 90, debt: false},
+      {id: 2, name: "Maria Lopez", grade: 80, debt: true},
+      {id: 3, name: "Carlos Ruiz", grade: 60, debt: false},
+      {id: 4, name: "Ana Torres", grade: 55, debt: true},
+    ];
 
     dummyCustomers.forEach((customer) => {
       this.customers.set(customer.id, customer);
+    });
+
+    dummyStudents.forEach((student) => {
+      this.students.set(student.id, student);
     });
   }
 
@@ -22,10 +34,14 @@ class FakeService extends DBService {
     return Array.from(this.customers.values());
   }
 
+  async getAllStudents() {
+    return Array.from(this.students.values());
+  }
+
   async getCustomerById(id) {
     return this.customers.get(id);
   }
-
+  //--------------
   async createCustomer(name, email) {
     const id = Date.now().toString();
     const customer = { id, name, email };
@@ -42,6 +58,7 @@ class FakeService extends DBService {
   async deleteCustomer(id) {
     this.customers.delete(id);
   }
+
 }
 
 module.exports = FakeService;

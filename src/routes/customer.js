@@ -5,6 +5,10 @@ const CustomerHttpHandler = require('../handlers/customer');
 const CustomerServiceFactory = require('../db/factory');
 const CustomerController = require('../controllers/customer');
 
+const StudentHttpHandler = require('../handlers/students');
+const StudentController = require('../controllers/student');
+
+
 // Create the service and controller
 const customerService = CustomerServiceFactory.create('fake');
 const customerController = new CustomerController(customerService);
@@ -18,5 +22,16 @@ router.get('/:id', customerHandler.getCustomerById.bind(customerHandler));
 router.post('/', customerHandler.createCustomer.bind(customerHandler));
 router.put('/:id', customerHandler.updateCustomer.bind(customerHandler));
 router.delete('/:id', customerHandler.deleteCustomer.bind(customerHandler));
+
+
+// Create the service and controller
+const studentService = StudentServiceFactory.create('fake');
+const studentController = new StudentController(studentService);
+
+// Create the handler instance
+const studentHandler = new StudentHttpHandler(studentController);
+
+// Set up routes with bound handler methods
+router.get('/', studentHandler.getAllStudents.bind(studentHandler));
 
 module.exports = router;

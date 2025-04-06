@@ -10,6 +10,13 @@ class DBService {
     throw new Error('Method not implemented');
   }
 
+  async getAllStudents() {
+    if (!this.initialized) {
+      throw new Error('Service not initialized');
+    }
+    throw new Error('Method not implemented');
+  }
+
   async getCustomerById(_id) {
     if (!this.initialized) {
       throw new Error('Service not initialized');
