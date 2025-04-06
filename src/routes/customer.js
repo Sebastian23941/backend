@@ -6,6 +6,7 @@ const CustomerServiceFactory = require('../db/factory');
 const CustomerController = require('../controllers/customer');
 
 const StudentHttpHandler = require('../handlers/students');
+const StudentServiceFactory = require('../db/factory');
 const StudentController = require('../controllers/student');
 
 
