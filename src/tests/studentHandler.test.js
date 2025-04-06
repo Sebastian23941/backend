@@ -27,10 +27,10 @@ describe('StudentHttpHandler', () => {
     it('should return all students', async () => {
 
         const students = [
-          {id: 1, name: "Juan Perez", grade: 90, debt: true},
-          {id: 2, name: "Maria Lopez", grade: 80, debt: false},
-          {id: 3, name: "Carlos Ruiz", grade: 60, debt: true},
-          {id: 4, name: "Ana Torres", grade: 55, debt: false}
+          {id: 1, name: "Juan Perez", grade: 90, debt: false},
+          {id: 2, name: "Maria Lopez", grade: 80, debt: true},
+          {id: 3, name: "Carlos Ruiz", grade: 60, debt: false},
+          {id: 4, name: "Ana Torres", grade: 55, debt: true}
         ];
 
         
